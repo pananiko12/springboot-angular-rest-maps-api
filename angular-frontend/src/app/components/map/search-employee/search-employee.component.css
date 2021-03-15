@@ -1,0 +1,52 @@
+
+#spanish:hover span.tooltiptext {
+    position: absolute;
+    display: block;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    width: 200px;
+    
+    z-index: 1;
+  }
+  #spanish{
+      position: relative;
+  }
+  #spanish span.tooltiptext{
+    display: none;
+  }
+
+
+
+  #car:hover span.driving {
+    position: absolute;
+    display: block;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    width: 200px;
+    z-index: 1;
+  }
+  #car{
+      position: relative;
+  }
+  #car span.driving{
+    display: none;
+  }
+
+
+.employeeRows{
+  cursor: pointer;
+  font-size: 18px;
+
+}
+.employeeRows:hover{
+  background-color: lightblue ;
+}
+.employeeRows:focus{
+    background-color: lightblue;
+} 

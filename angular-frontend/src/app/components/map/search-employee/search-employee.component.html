@@ -1,0 +1,50 @@
+<div class="container " style="margin-top: 100px;">
+    <h2 class="text-center">Select Attributes to find employees</h2>
+    <div class="col-5 offset-md-4 mb-2">
+        <ng-multiselect-dropdown [placeholder]="'Choose Attributes'" [settings]="dropdownSettings" [data]="dropdownList"
+            [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onDeSelect)="onItemDeSelect($event)"
+            [ngModelOptions]="{standalone: true}" (onSelectAll)="onSelectAll($event)"
+            (onDeSelectAll)="onDeSelectAll($event)">
+        </ng-multiselect-dropdown>
+    </div>
+    <div class=" container" *ngIf="showedItems.length!=0"
+        style="border: 1px solid black; border-radius: 15px; background-color: #8C9BB6; margin-top: 5px;">
+        <table class="table table-striped"
+            style="font-size: large; border-radius: 15px; border: 2px solid black; margin-top: 1rem; background-color: white;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th class="text-center">Address</th>
+                    <th>Vehicles</th>
+                    <th class=" text-center">Attributes</th>
+                </tr>
+            </thead>
+            <tbody id="tableContainer">
+                <ng-container *ngFor="let employee of showedItems; let i=index;">
+                    <tr class="employeeRows pt-0" (click)="selectEmployee(employee)"  id="tableRow{{employee.id}}">
+                        <td style="border-right: 1px solid gray; padding-top: 20px;">{{i+1}}</td>
+                        <td style="padding-top: 20px;">{{employee.name}}</td>
+                        <td style="padding-top: 20px;">{{employee.dateOfBirth}}</td>
+                        <td style="padding-top: 20px;" class="text-center">{{employee.address}}, {{employee.city}}</td>
+                        <td> <span id="car">
+                                <i *ngIf="employee.carOwned==true" class="fas fa-2x fa-car"></i>
+                                <span class="driving">Employee drives a car</span>
+                            </span></td>
+                        <td class="text-center">
+                            <span *ngFor="let attribute of employee.attributes" id="spanish">
+                                <i class="fas fa-2x fa-tasks ml-2"></i>
+                                <span class="tooltiptext">{{attribute.attrName}}</span>
+                            </span>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+
+    </div>
+    <button *ngIf="selectedEmployee" type="submit" name="button" (click)="goToMapping(selectedEmployee.id)"
+        ngDefaultControl [(ngModel)]="selectedEmployee" [ngModelOptions]="{standalone: true}"
+        class="btn   offset-md-10 col-2 mt-5" style="background-color: #8C9BB6; font-size: 20px;">Continue</button>
+</div>

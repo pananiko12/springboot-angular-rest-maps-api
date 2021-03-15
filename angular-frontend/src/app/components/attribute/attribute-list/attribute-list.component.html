@@ -1,0 +1,21 @@
+<div class="d-flex text-center" style="margin-top: 100px;">
+    <h2 class="text-right col-7 " style="font-size: 35px;"> Attribute List</h2>
+    <button routerLink="../create-attribute" routerLinkActive="active" class="btn  ml-5 h-25"
+        style="float: right; background-color: #8C9BB6; font-size: 20px;">Add Attribute</button>
+</div>
+<div class="container col-8"
+    style="border: 1px solid black; border-radius: 15px; background-color: #8C9BB6; margin-top: 5px;">
+    <table class="table table-striped text-center" style="font-size: large; border-radius: 15px; border: 2px solid black; margin-top: 15px ;margin-bottom: 15px; background-color: white;" >
+        <thead>
+            <tr>
+                <th class="text-center border">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let attribute of attributes" (click)="attributeDetails(attribute.attrId)"
+                class="attributeRows border">
+                <td class="border">{{attribute.attrName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

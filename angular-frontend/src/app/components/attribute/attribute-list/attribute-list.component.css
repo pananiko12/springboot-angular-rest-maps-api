@@ -1,0 +1,9 @@
+
+.attributeRows{
+    cursor: pointer;
+    font-size: 18px;
+  
+  }
+  .attributeRows:hover{
+    background-color: lightblue;
+  }

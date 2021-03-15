@@ -1,0 +1,26 @@
+<div class="container border " style="margin-top: 150px; border-radius: 30px; height: 500px; background-color: #8C9BB6;">
+  <h2 class="text-center" style="padding-top: 20px; font-size: 30px;">{{employee.name}}</h2>
+  <hr>
+  <div class="d-flex " style="padding-top: 40px;">
+    <div 
+      style="padding: 80px; width: 25%; text-align: center; color: #8C9BB6; border: 2px solid black; background-color: #2B293B; border-radius: 100%;">
+      <i class="fas fa-7x fa-user" ></i>
+    </div>
+    <div class=" col-8 text-left " style="font-size: 20px; display: block; padding-left: 125px;">
+      <p class="mb-5 pt-4"> Date of Birth: {{employee.dateOfBirth}}</p>
+      <p class="mb-5"> Address: {{employee.address}}</p>
+      <p style="margin-top: 70px;">Attributes:
+        <span id="car">
+          <i *ngIf="employee.carOwned==true" class="fas fa-2x fa-car"></i>
+          <span class="driving">Employee drives a car</span>
+        </span>
+        <span *ngFor="let attribute of employee.attributes" id="spanish">
+          <i class="fas fa-2x fa-tasks ml-2"></i>
+          <span class="tooltiptext">{{attribute.attrName}}</span>
+        </span>
+      </p>
+      <button (click)="updateEmployee(employee.id)" class="btn btn-info col-2" style="height: 50px; position: absolute; top: 50px; right: 100px; font-size: 25px;">Update</button>
+      <button (click)="deleteEmployee(employee.id)" class="btn btn-danger col-2  ml-2" style="height: 50px; position: absolute; top: 110px; right: 100px; font-size: 25px; ">Delete</button>
+    </div>
+  </div>
+</div>

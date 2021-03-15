@@ -1,0 +1,22 @@
+<div class="col-md-8 offset-md-2">
+    <h3 class="text-center">Update Attribute</h3>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div class="form-group">
+            <label for="name">Attribute Name<span style="color: red;">*</span></label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="attribute.attrName" formControlName="name"
+                [ngClass]="{'is-invalid':
+                            form.get('name').touched && form.get('name').invalid}" minlength="3" name="name" required>
+            <div *ngIf="form.get('name').touched && form.get('name').invalid" class="invalid-feedback">
+                <div *ngIf="form.get('name').errors.required">Name is required</div>
+                <div *ngIf="form.get('name').errors.minlength"> Name must be at least 3 characters long.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="value">value</label>
+            <input type="text" class="form-control" id="value" [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="attribute.attrValue" name="value">
+        </div>
+        <button class="btn btn-success" [disabled]="!form.valid" type="submit">Submit</button>
+    </form>
+</div>
+<script></script>
